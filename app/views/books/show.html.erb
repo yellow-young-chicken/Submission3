@@ -1,8 +1,18 @@
 <h1>Book detail</h1>
 <div>
+
+  <%= link_to user_path(@user.id) do %>
+  <p>投稿ユーザー画像:<%= image_tag @book.user.get_profile_image(100,100) %></p>
+  <% end %>
+
+
   <p>username：<%= @book.user.name %></p>
   <p>Title : <%= @book.title %></p>
   <p>Opinion : <%= @book.body %></p>
+
+  <% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path(@book), method: :get %>
+  <% end %>
 
   <% if @book.user == current_user %>
     <%= link_to "Destroy", book_destroy_path(@book), method: :delete %>
