@@ -1,20 +1,60 @@
+<main>
+  <p id="notice"></p>
+  <div class="container px-5 px-sm-0">
+    <div class="row">
+      <%= render'user_info',user: @user_current,book: @book %>
+      <div class="col-md-8 offset-md-1">
+        <h2>Books</h2>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= image_tag book.user.get_profile_image(100,100) %>
 
-<%= render'user_info',user: @user_current,book: @book %>
+              </td>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                  <p><%= book.title %></p>
+                <% end %>
+              </td>
 
-<!-- ユーザーの投稿一覧の部分 -->
+              <td>
+                <%= book.body %>
 
-<% @books.each do |book| %>
-<div>
+              </td>
 
 
-  <p>投稿ユーザー画像:<%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>ユーザーネーム:<%= book.user.name %></p>
+            </tr>
 
-  <%= link_to book_path(book.id) do %>
-  <p>Title:<%= book.title %></p>
-  <% end %>
-  <p>Opinion:<%= book.body %></p>
 
-</div>
+          <% end %>
+          </tbody>
 
-<% end %>
+
+
+
+        </table>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+</main>
+
+
+
+

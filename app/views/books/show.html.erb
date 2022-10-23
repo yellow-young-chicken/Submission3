@@ -10,12 +10,8 @@
   <p>Title : <%= @book.title %></p>
   <p>Opinion : <%= @book.body %></p>
 
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book), method: :get %>
-  <% end %>
+  <%= link_to "Edit", edit_book_path(@book), method: :get %>
 
-  <% if @book.user == current_user %>
-    <%= link_to "Destroy", book_destroy_path(@book), method: :delete %>
-  <% end %>
+  <%= link_to "Destroy", book_destroy_path(@book), method: :delete %>
 
 </div>
