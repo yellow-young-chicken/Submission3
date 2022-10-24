@@ -2,7 +2,7 @@
   <p id="notice"></p>
   <div class="container">
     <div class="row">
-      <%= render'users/user_info', user: @user_current,book: @book_new %>
+      <%= render'users/user_info', user: @user,book: @book_new %>
       <div class="col-md-8 offset-md-1">
         <h2>Book detail</h2>
         <table class="table">
@@ -17,7 +17,6 @@
                 <% end %>
               </td>
               <td>
-                <!--書き足す必要あるかも-->
 
                 <p>Title : <%= @book.title %></p>
 
@@ -29,10 +28,15 @@
 
               </td>
 
+
+              <% if @user.id == current_user.id %>
               <td>
 
+
                 <span class="btn btn-sm btn-success edit_book_42450" >
+
                   <%= link_to "Edit", edit_book_path(@book), method: :get %>
+
                 </span>
 
               </td>
@@ -44,6 +48,7 @@
                 </span>
 
               </td>
+              <% end %>
 
 
             </tr>
