@@ -1,30 +1,59 @@
-<div>
-  <%= flash[:notice] %>
-</div>
+<main>
+  <p id="notice"></p>
+  <div class="container">
+    <div>
+      <%= flash[:notice] %>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h1>Editing Book</h1>
+        <% if @book.errors.any? %>
+          <%= @book.errors.count %> errors prohibited this obj from being saved:
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
-<h1>book_params</h1>
 
-<% if @book.errors.any? %>
-  <%= @book.errors.count %> errors prohibited this obj from being saved:
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+        <%= form_with model: @book do |f| %>
+
+        <h4>Title</h4>
+        <%= f.text_field :title %>
+
+        <h4>Opinion</h4>
+        <%= f.text_area :body %>
+
+        <%= f.submit"Update Book" %>
+
+        <p><%= link_to"Show",book_path(@book) %> </p>
+        <p><%= link_to"Back",books_path %> </p>
+
+        <% end %>
 
 
-<%= form_with model: @book do |f| %>
 
-  <h4>Title</h4>
-  <%= f.text_field :title %>
+      </div>
 
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
 
-  <%= f.submit"Update Book" %>
 
-  <p><%= link_to"Show",book_path(@book) %> </p>
-  <p><%= link_to"Back",books_path %> </p>
+    </div>
 
-<% end %>
+
+
+
+  </div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
