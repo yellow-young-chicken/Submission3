@@ -1,11 +1,6 @@
-<main>
-  <p id="notice"></p>
-  <div class="container px-5 px-sm-0">
-     <div class="row">
-       <%= render'user_info',user: @user,book: @book %>
-       <div class="col-md-8 offset-md-1">
-         <h2>Users</h2>
-         <table class="table">
+<h2>Follow Users</h2>
+<% if @users.exists? %>
+           <table class="table">
            <thead>
              <tr>
               <th>image</th>
@@ -40,12 +35,6 @@
 
 
          </table>
-
-
-       </div>
-     </div>
-  </div>
-</main>
-
-
-
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>
