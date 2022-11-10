@@ -60,3 +60,5 @@ gem 'net-smtp'
 gem 'devise'
 
 gem 'ransack'
+
+gem 'jquery-rails'
