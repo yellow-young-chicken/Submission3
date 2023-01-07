@@ -17,48 +17,34 @@
                 <% end %>
               </td>
               <td>
-
                 <p>Title : <%= @book.title %></p>
-
               </td>
-
               <td>
                 <p>Opinion : <%= @book.body %></p>
-
               </td>
 
               <td class=<%= "favorite-" + @book.id.to_s %> >
                 <%= render "favorites/btn", book: @book %>
               </td>
 
-              <td>
-                コメント数:<%= @book.book_comments.count %>
+              <td class="book-comments-counter">
+                <%= render "book_comments/counter", book: @book %>
               </td>
+              <td><%= render "static_rate", book: @book %></td>
 
               <% if @user.id == current_user.id %>
               <td>
-
-
                 <span class="btn btn-sm btn-success edit_book_42450" >
-
                   <%= link_to "Edit", edit_book_path(@book), method: :get %>
-
                 </span>
-
               </td>
-
               <td>
                 <span class="btn btn-sm btn-danger destroy_book_42450" >
-
                   <%= link_to "Destroy", "/books/#{@book.id}", method: :delete %>
                 </span>
-
               </td>
               <% end %>
-
             </tr>
-
-
           </tbody>
 
         </table>

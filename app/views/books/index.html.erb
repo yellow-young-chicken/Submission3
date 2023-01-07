@@ -31,12 +31,11 @@
             <td>
               <%= book.body %>
             </td>
-            <td>
-              コメント数: <%= book.book_comments.count %>
-            </td>
             <td class=<%= "favorite-" + book.id.to_s %> >
               <%= render "favorites/btn", book: book %>
             </td>
+            <td><%= render "book_comments/counter", book: book %></td>
+            <td><%= render "books/static_rate", book: book %></td>
 
 
 
@@ -62,6 +61,11 @@
      </div>
   </div>
 </main>
+
+
+
+
+
 
 
 

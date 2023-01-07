@@ -62,3 +62,5 @@ gem 'devise'
 gem 'ransack'
 
 gem 'jquery-rails'
+
+gem 'data-confirm-modal'
